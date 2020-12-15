@@ -38,44 +38,94 @@ Start:
 	or c
 	jr nz, .copyTiles
 
-.exampleInitCode
-	ld hl, _SCRN0
-	ld a, 1
+.drawPlayer
+	ld hl, _OAMRAM
+	
+	ld b, $80 ; y coord
+	ld c, $80 ; x coord
+
+	ld a, b
 	ld [hli], a
-	inc a
+	ld a, c
 	ld [hli], a
-	inc a
+	ld a, $1
 	ld [hli], a
-	inc a
-	ld [hli], a
-	inc a
-	ld [hli], a
-	inc a
-	ld [hli], a
-	inc a
-	ld [hli], a
-	inc a
-	ld [hli], a
-	inc a
-	ld [hli], a
-	inc a
-	ld [hli], a
-	inc a
-	ld [hli], a
-	inc a
-	ld [hli], a
-	inc a
-	ld [hli], a
-	inc a
-	ld [hli], a
-	inc a
-	ld [hli], a
-	inc a
+	ld a, %00000000
 	ld [hli], a
 	
-	xor a
-	ld b, $FF	
-
+	ld a, b
+	ld [hli], a
+	ld a, $8
+	add c
+	ld [hli], a
+	ld a, $1
+	ld [hli], a
+	ld a, %00100000
+	ld [hli], a
+	
+	ld a, $8
+	add b
+	ld [hli], a
+	ld a, c
+	ld [hli], a
+	ld a, $2
+	ld [hli], a
+	ld a, %00000000
+	ld [hli], a
+	
+	ld a, $8
+	add b
+	ld [hli], a
+	ld a, $8
+	add c
+	ld [hli], a
+	ld a, $3
+	ld [hli], a
+	ld a, %00000000
+	ld [hli], a
+	
+	ld a, $10
+	add b
+	ld [hli], a
+	ld a, c
+	ld [hli], a
+	ld a, $4
+	ld [hli], a
+	ld a, %00000000
+	ld [hli], a
+	
+	ld a, $10
+	add b
+	ld [hli], a
+	ld a, $8
+	add c
+	ld [hli], a
+	ld a, $5
+	ld [hli], a
+	ld a, %00000000
+	ld [hli], a
+	
+	ld a, $18
+	add b
+	ld [hli], a
+	ld a, c
+	ld [hli], a
+	ld a, $6
+	ld [hli], a
+	ld a, %00000000
+	ld [hli], a
+	
+	ld a, $18
+	add b
+	ld [hli], a
+	ld a, $8
+	add c
+	ld [hli], a
+	ld a, $6
+	ld [hli], a
+	ld a, %00100000
+	ld [hli], a
+ 
 	; init display!
 	ld a, %11100100
 	ld [rBGP], a
